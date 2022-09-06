@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1043</width>
+    <height>702</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>成绩自动查询</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="configGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>1021</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>配置区域</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>83</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1系统未登录</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>20</y>
+       <width>45</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>姓名：</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>20</y>
+       <width>64</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>未登录</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>20</y>
+       <width>51</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>学院：</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>20</y>
+       <width>211</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>未登录</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>20</y>
+       <width>51</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>年级：</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>20</y>
+       <width>81</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>未登录</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="chooseTermLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>选择学期</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="selectTermComboBox_2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>60</y>
+       <width>250</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>250</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="sizeIncrement">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="currentText">
+      <string>请先登录1系统</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>60</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+     <item>
+      <property name="text">
+       <string>请先登录1系统</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>60</y>
+       <width>281</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://blog.cinea.com.cn/TJAGS/NoWantedTerm.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;没有想要查询的学期？点击这里查看帮助&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>98</y>
+       <width>120</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>设置消息通知邮箱</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="mailLineEdt">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>100</y>
+       <width>301</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mailConfirmBtn_2">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>100</y>
+       <width>93</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>确定</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cookieHelpLebel_3">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>90</y>
+       <width>491</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;作者提示：如果没有邮箱的话可以输入QQ邮箱（&lt;span style=&quot; font-style:italic;&quot;&gt;你的QQ号&lt;/span&gt;@qq.com）&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::RichText</enum>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <property name="indent">
+      <number>-1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cookieHelpLebel_4">
+     <property name="geometry">
+      <rect>
+       <x>630</x>
+       <y>110</y>
+       <width>381</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;新出成绩消息会直接推送到QQ，无需下载邮箱软件&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::RichText</enum>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <property name="indent">
+      <number>-1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>90</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>设置查询间隔</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="queryTimeEdit">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>135</y>
+       <width>100</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="suffix">
+      <string>秒</string>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>10000.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>30.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="delayTimeOK">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>135</y>
+       <width>93</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>确定</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>130</y>
+       <width>290</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;建议设置：30秒 &lt;span style=&quot; font-weight:600; color:#ff0000;&quot;&gt;为己为人，切勿频繁查询！&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::RichText</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="startButton">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>20</y>
+       <width>141</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>开始查询</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="aboutBtn">
+     <property name="geometry">
+      <rect>
+       <x>860</x>
+       <y>20</y>
+       <width>141</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>关于</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="queryBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>430</y>
+      <width>1021</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>日志区域</string>
+    </property>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>1001</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;这里是查询进度条&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;用来搞心理安慰作用的，其实和查询进度没关系&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="textVisible">
+      <bool>false</bool>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="outputWindow">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>1001</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;这里是日志输出区域&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="undoRedoEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="acceptRichText">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>190</y>
+      <width>1021</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>查询区域</string>
+    </property>
+    <widget class="QTableWidget" name="scoreTable">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>1001</width>
+       <height>201</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
