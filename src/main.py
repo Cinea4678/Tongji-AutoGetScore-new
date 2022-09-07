@@ -10,7 +10,10 @@
 
 import sys
 import PyQt5.QtWidgets as QtWidgets
-import src.ui.main as main
+try:
+    import src.ui.main as main
+except ImportError:
+    import ui.main as main
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

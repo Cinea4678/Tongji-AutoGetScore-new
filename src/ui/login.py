@@ -15,7 +15,10 @@ import time
 import PyQt5.QtWidgets as QtWidgets
 import PyQt5.QtCore as QtCore
 import PyQt5.QtGui as QtGui
-import src.ui.src.Ui_login as Ui_login
+try:
+    import src.ui.src.Ui_login as Ui_login
+except ImportError:
+    import src.Ui_login as Ui_login
 import easyTongjiapi
 from loguru import logger
 
