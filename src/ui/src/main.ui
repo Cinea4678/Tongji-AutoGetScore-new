@@ -52,7 +52,7 @@
       <string>姓名：</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="nameLabel">
      <property name="geometry">
       <rect>
        <x>170</x>
@@ -78,7 +78,7 @@
       <string>学院：</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="fLabel">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -104,7 +104,7 @@
       <string>年级：</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="gradeLabel">
      <property name="geometry">
       <rect>
        <x>580</x>

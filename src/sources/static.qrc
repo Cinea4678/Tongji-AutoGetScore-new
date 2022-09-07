@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="images">
+    <file>ILTJ.png</file>
+    <file>CineaWorks.png</file>
+  </qresource>
+</RCC>
