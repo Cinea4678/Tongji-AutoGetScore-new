@@ -59,6 +59,8 @@ class verifyMailDialog(QtWidgets.QDialog):
         self.setFixedSize(522, 223)
         self.setWindowTitle("验证您的邮箱")
 
+        self.ui.resendBtn.clicked.connect(self.resend)
+
         self.mail = mailAddr
         self.lastTime = veLastTime
         veLastSendTime = veLastTime

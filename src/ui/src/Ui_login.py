@@ -56,7 +56,6 @@ class Ui_Dialog(object):
         self.progressBar.setObjectName("progressBar")
 
         self.retranslateUi(Dialog)
-        self.buttonBox.accepted.connect(Dialog.accept)
         self.buttonBox.rejected.connect(Dialog.reject)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
