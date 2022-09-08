@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\算法实验室\17pyqt查成绩\Tongji-AutoGetScore\ui\about.ui'
+# Form implementation generated from reading ui file 'about.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -20,7 +20,7 @@ class Ui_Dialog(object):
         Dialog.setFont(font)
         self.img = QtWidgets.QLabel(Dialog)
         self.img.setGeometry(QtCore.QRect(160, 30, 471, 91))
-        self.img.setStyleSheet("")
+        self.img.setStyleSheet("background-image:url(:/images/CineaWorks.png)")
         self.img.setText("")
         self.img.setObjectName("img")
         self.label_2 = QtWidgets.QLabel(Dialog)
@@ -75,3 +75,4 @@ class Ui_Dialog(object):
         self.label_8.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">提交BUG请到Github Issue区或向我发送邮件</span></p></body></html>"))
         self.label_9.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">严重/紧急的BUG也可以添加我的QQ：1650121748（注明来意）</span></p></body></html>"))
         self.copyRightMsg.setText(_translate("Dialog", "版权信息"))
+

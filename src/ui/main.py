@@ -25,6 +25,7 @@ try:
     import src.ui.src.Ui_main as Ui_main
     import src.ui.login as Ui_login
     import src.ui.verifyMail as Ui_ve
+    import src.ui.about as Ui_about
     import src.sources.static_rc
     import src.mail as mailTools
 except ImportError:
@@ -94,6 +95,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.mailConfirmBtn_2.clicked.connect(self.mailConfirmBtn_Click)
         self.ui.delayTimeOK.clicked.connect(self.delayTimeOK_Click)
         self.ui.startButton.clicked.connect(self.startButton_Click)
+        self.ui.aboutBtn.clicked.connect(self.showAboutDialog)
 
         # 注册信号
         self.loggerSubmitSignal.connect(self.updateLog)
@@ -252,6 +254,10 @@ class MainWindow(QtWidgets.QMainWindow):
             self.logger.info("查询线程即将结束...")
             self.ui.progressBar.reset()
 
+    @staticmethod
+    def showAboutDialog():
+        dialog = Ui_about.aboutDialog()
+        dialog.exec()
 
 
 # 查询线程类

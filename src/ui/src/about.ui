@@ -28,7 +28,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">background-image:url(:/images/CineaWorks.png)</string>
    </property>
    <property name="text">
     <string/>
@@ -179,6 +179,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../sources/static.qrc"/>
+ </resources>
  <connections/>
 </ui>
