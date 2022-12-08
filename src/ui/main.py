@@ -15,9 +15,9 @@ import threading
 import time
 import json
 
-import PyQt5.QtWidgets as QtWidgets
-import PyQt5.QtCore as QtCore
-import PyQt5.QtGui as QtGui
+import PyQt6.QtWidgets as QtWidgets
+import PyQt6.QtCore as QtCore
+import PyQt6.QtGui as QtGui
 
 import easyTongjiapi
 
@@ -85,8 +85,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.scoreTable.setRowCount(0)
         self.ui.scoreTable.verticalHeader().setVisible(False)
         self.ui.scoreTable.setHorizontalHeaderLabels(['课号', '课程名', '学分', '成绩', '是否通过', '更新时间'])
-        self.ui.scoreTable.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
-        self.ui.scoreTable.setSelectionMode(QtWidgets.QTableWidget.NoSelection)
+        self.ui.scoreTable.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
+        self.ui.scoreTable.setSelectionMode(QtWidgets.QTableWidget.SelectionMode.NoSelection)
         columnWidth = [150, 200, 100, 150, 100, 275]
         for index in range(self.ui.scoreTable.columnCount()):
             self.ui.scoreTable.setColumnWidth(index, columnWidth[index])
@@ -115,14 +115,14 @@ class MainWindow(QtWidgets.QMainWindow):
         loginDialog = Ui_login.LoginDialog(self.session)
         if loginDialog.exec() != 1:
             logger.info("用户取消登录")
-            exit(0)
+            os._exit(0)
 
         # 加载学生数据
         selfData: easyTongjiapi.Student = self.session.studentData
         if not selfData:
             self.logger.error("获取学生数据失败！")
             QtWidgets.QMessageBox.critical(self, "连接出错", "连接到一系统时出错，为了保证您的体验，程序即将自动退出。")
-            exit(0)
+            os._exit(0)
         self.ui.nameLabel.setText(selfData.name)
         self.ui.fLabel.setText(selfData.facultyName)
         self.ui.gradeLabel.setText(selfData.grade)
@@ -134,7 +134,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if not scoreData:
             self.logger.error("获取学期数据失败！")
             QtWidgets.QMessageBox.critical(self, "连接出错", "连接到一系统时出错，为了保证您的体验，程序即将自动退出。")
-            exit(0)
+            os._exit(0)
         self.ui.selectTermComboBox_2.removeItem(0)
         if scoreData.termNum == 0:
             self.ui.selectTermComboBox_2.addItem("第一学年 上学期")
@@ -146,10 +146,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.updateScoreTable(0)
         self.ui.mailLineEdt.setReadOnly(False)
         self.ui.mailLineEdt.setText("")
-        self.ui.statusbar.showMessage("就绪")
+        self.ui.statusbar.showMessage("就绪  |  关闭程序前，最好先停止查询，不然mac系统会弹窗")
 
     def __del__(self):
-        exit(0)
+        logger.info("程序即将退出")
+        os._exit(0)
 
     # 工具类函数
 

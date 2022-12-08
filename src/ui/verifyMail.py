@@ -12,9 +12,9 @@ import threading
 import time
 import json
 
-import PyQt5.QtWidgets as QtWidgets
-import PyQt5.QtCore as QtCore
-import PyQt5.QtGui as QtGui
+import PyQt6.QtWidgets as QtWidgets
+import PyQt6.QtCore as QtCore
+import PyQt6.QtGui as QtGui
 
 try:
     import src.ui.src.Ui_verifyMail as Ui_ve

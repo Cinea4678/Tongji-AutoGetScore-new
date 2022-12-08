@@ -9,7 +9,7 @@
 """
 
 import sys
-import PyQt5.QtWidgets as QtWidgets
+import PyQt6.QtWidgets as QtWidgets
 try:
     import src.ui.main as main
 except ImportError:
@@ -20,7 +20,7 @@ def start():
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = main.MainWindow()
     MainWindow.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
 
 if __name__ == "__main__":

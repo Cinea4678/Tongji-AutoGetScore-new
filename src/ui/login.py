@@ -12,9 +12,9 @@ import os
 import threading
 import time
 
-import PyQt5.QtWidgets as QtWidgets
-import PyQt5.QtCore as QtCore
-import PyQt5.QtGui as QtGui
+import PyQt6.QtWidgets as QtWidgets
+import PyQt6.QtCore as QtCore
+import PyQt6.QtGui as QtGui
 
 try:
     import src.ui.src.Ui_login as Ui_login
@@ -67,8 +67,8 @@ class LoginDialog(QtWidgets.QDialog):
 
     def reject(self) -> None:
         if QtWidgets.QMessageBox.warning(self, "您确定要退出程序吗？", "若不登录，程序将会自动退出。",
-                                         QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel,
-                                         QtWidgets.QMessageBox.Cancel) == QtWidgets.QMessageBox.Cancel:
+                                         QtWidgets.QMessageBox.StandardButton.Ok | QtWidgets.QMessageBox.StandardButton.Cancel,
+                                         QtWidgets.QMessageBox.StandardButton.Cancel) == QtWidgets.QMessageBox.StandardButton.Cancel:
             return
         super().reject()
 

@@ -9,7 +9,7 @@ for file in os.listdir("."):
             print(f"Gen/Updated {outName}")
             if os.path.exists(outName):
                 os.system(f"cp {outName} .{outName}")
-            os.system(f"pyuic5 {file} -o {outName}")
+            os.system(f"/opt/anaconda3/envs/tjags/bin/pyuic6 {file} -o {outName}")
 
 os.chdir("../../sources")
 for file in os.listdir("."):
