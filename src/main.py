@@ -15,8 +15,13 @@ try:
 except ImportError:
     import ui.main as main
 
-if __name__ == "__main__":
+
+def start():
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = main.MainWindow()
     MainWindow.show()
     sys.exit(app.exec_())
+
+
+if __name__ == "__main__":
+    start()

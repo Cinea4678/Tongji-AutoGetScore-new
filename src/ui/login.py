@@ -15,6 +15,7 @@ import time
 import PyQt5.QtWidgets as QtWidgets
 import PyQt5.QtCore as QtCore
 import PyQt5.QtGui as QtGui
+
 try:
     import src.ui.src.Ui_login as Ui_login
 except ImportError:
@@ -26,7 +27,7 @@ currentDir = os.path.dirname(os.path.abspath(__file__))
 
 
 class LoginDialog(QtWidgets.QDialog):
-    submitResultSignal = QtCore.pyqtSignal(bool)
+    submitResultSignal = QtCore.pyqtSignal(bool, str)
 
     def __init__(self, session: easyTongjiapi.Session):
         super(LoginDialog, self).__init__()
@@ -37,6 +38,8 @@ class LoginDialog(QtWidgets.QDialog):
 
         self.setWindowIcon(QtGui.QIcon(os.path.abspath(os.path.join(currentDir, "../sources/nmck_bb.ico"))))
         self.ui.buttonBox.accepted.connect(self.clicked)
+        self.ui.showPassword.pressed.connect(self.showPasswd)
+        self.ui.showPassword.released.connect(self.hidePasswd)
         self.setFixedSize(649, 480)
         self.setWindowTitle("登录到一系统")
         self.ui.progressBar.setMaximum(100)
@@ -52,6 +55,12 @@ class LoginDialog(QtWidgets.QDialog):
         self.loginThd = loginThread(self.submitResultSignal, self)
         self.loginThd.start()
 
+    def showPasswd(self) -> None:
+        self.ui.stuCode.setEchoMode(QtWidgets.QLineEdit.EchoMode.Normal)
+
+    def hidePasswd(self) -> None:
+        self.ui.stuCode.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
+
     def accept(self) -> None:
         # 由其他函数处理
         pass
@@ -63,12 +72,12 @@ class LoginDialog(QtWidgets.QDialog):
             return
         super().reject()
 
-    def dealAccept(self, ok: bool):
+    def dealAccept(self, ok: bool, what: str):
         if ok:
             super(LoginDialog, self).accept()
         else:
-            QtWidgets.QMessageBox.warning(self, "登录失败", "请检查学号、密码是否正确！")
             self.ui.progressBar.setMaximum(100)
+            QtWidgets.QMessageBox.warning(self, "登录失败", what)
 
 
 class loginThread(threading.Thread):
@@ -79,8 +88,8 @@ class loginThread(threading.Thread):
 
     def run(self) -> None:
         try:
-            self.parent.session.login(self.parent.ui.stuID.text(), self.parent.ui.stuCode.text(), manual=True)
-            self.submit.emit(True)
+            self.parent.session.login(self.parent.ui.stuID.text(), self.parent.ui.stuCode.text(), manual=False)
+            self.submit.emit(True, "")
         except Exception as e:
             logger.error(str(e))
-            self.submit.emit(False)
+            self.submit.emit(False, str(e))

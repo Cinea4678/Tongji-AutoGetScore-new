@@ -68,6 +68,7 @@ class LogOutput:
 # 主窗口类
 class MainWindow(QtWidgets.QMainWindow):
     loggerSubmitSignal = QtCore.pyqtSignal(str)
+    processBarUpdateSignal = QtCore.pyqtSignal(int)
 
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
@@ -100,6 +101,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # 注册信号
         self.loggerSubmitSignal.connect(self.updateLog)
         self.logger = LogOutput(self.loggerSubmitSignal)
+        self.processBarUpdateSignal.connect(self.updateProcessBar)
 
         # 初始化其他变量
         self.term = 0
@@ -176,6 +178,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     # 槽函数
 
+    def updateProcessBar(self, value):
+        self.ui.progressBar.setValue(value)
+
     def selectTerm_IndexChange(self, index):
         if index < 0:
             return
@@ -236,7 +241,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 QtWidgets.QMessageBox.warning(self, "错误", "您还未设置邮箱")
                 return
             if platform.system() == 'Darwin':
-                QtWidgets.QMessageBox.information(self, "提示", "您使用的是Apple macOS操作系统，由于苹果对后台、省电管理严格，请务必前往“系统偏好设置”—“节能”勾选“当显示器关闭时，防止Mac自动进入睡眠”并接入电源使用本程序。\n\n由于作者没有Mac实机，测试完全在虚拟机上进行，因此无法保证运行无虞，若出现Bug请您谅解。")
+                QtWidgets.QMessageBox.information(self, "提示", "您使用的是Apple macOS操作系统，由于苹果对后台、省电管理严格，请务必前往“系统偏好设置”—“节能”勾选“当显示器关闭时，防止Mac自动进入睡眠”并接入电源使用本程序。\n\n作者使用的是m1版mbp，不同机型可能表现不同，敬请谅。")
             elif platform.system() == 'Windows':
                 QtWidgets.QMessageBox.information(self, "提示", "您使用的是Windows操作系统，为防止程序意外停止，请务必右键点击“开始菜单”，选择“电源选项”，将“接通电源后，系统将进入睡眠状态”设为“永不”并将设备接入电源。")
             else:
@@ -244,7 +249,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 pass
             self.ui.startButton.setText("停止查询")
             stop_flag = False
-            self.queryThread = queryThreadClass(self)
+            self.queryThread = queryThreadClass(self, self.processBarUpdateSignal)
             self.queryThread.start()
             self.running = True
         else:
@@ -262,9 +267,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
 # 查询线程类
 class queryThreadClass(threading.Thread):
-    def __init__(self, parent: MainWindow):
+    def __init__(self, parent: MainWindow, updateProcessBarSignal: QtCore.pyqtBoundSignal):
         super(queryThreadClass, self).__init__()
         self.parent = parent
+        self.updateProcessBarSignal = updateProcessBarSignal
 
     def run(self) -> None:
         self.parent.logger.info("查询已开始，正在初始化...")
@@ -302,12 +308,12 @@ class queryThreadClass(threading.Thread):
 
         start_time = time.time()
         while not stop_flag:
-            self.parent.ui.progressBar.setValue(int(time.time())-start_time)
+            self.updateProcessBarSignal.emit(int(time.time()-start_time))
             if time.time() - start_time < self.parent.delay:
                 time.sleep(1)
                 continue
             else:
-                self.parent.ui.progressBar.setValue(0)
+                self.updateProcessBarSignal.emit(int(time.time()-start_time))
                 start_time = time.time()
             totalChecked += 1
             if not query_once():

@@ -37,7 +37,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>140</x>
      <y>120</y>
      <width>391</width>
      <height>41</height>
@@ -57,7 +57,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;学号&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;学号&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="stuID">
@@ -80,7 +80,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;密码&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;密码&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="stuCode">
@@ -109,22 +109,6 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;安全性声明&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;本程序仅会使用您的密码访问以下功能：成绩查询、信息查询、校历查询。&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;您的密码不会被记录或发送到任何服务器&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;您的明文密码将会在离开此对话框后即刻销毁&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>30</y>
-     <width>301</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/ILTJ.png)</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QProgressBar" name="progressBar">
    <property name="enabled">
     <bool>true</bool>
@@ -145,6 +129,35 @@
    </property>
    <property name="textVisible">
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>20</y>
+     <width>460</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../../sources/static.qrc">:/images/TAGS.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showPassword">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>220</y>
+     <width>51</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>显示</string>
    </property>
   </widget>
  </widget>
