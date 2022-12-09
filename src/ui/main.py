@@ -147,7 +147,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.updateScoreTable(0)
         self.ui.mailLineEdt.setReadOnly(False)
         self.ui.mailLineEdt.setText("")
-        self.ui.statusbar.showMessage("就绪  |  关闭程序前，最好先停止查询，不然mac系统会弹窗")
+        self.ui.statusbar.showMessage("就绪")
 
     def closeEvent(self, event: QtGui.QCloseEvent) -> None:
         reply = QtWidgets.QMessageBox.information(self, "即将退出", "您确定要退出吗？",
@@ -292,9 +292,12 @@ class queryThreadClass(threading.Thread):
     def run(self) -> None:
         self.parent.logger.info("查询已开始，正在初始化...")
         grades = []
-        for courses in self.parent.scores.data['term'][self.parent.term]['creditInfo']:
-            grades.append(courses['id'])
-        self.parent.logger.info(f"查询已开始，当前已出{len(grades)}门成绩（如果是新学期则为0门，本数量不影响查询过程）")
+        if self.parent.scores.termNum > 0:
+            for courses in self.parent.scores.data['term'][self.parent.term]['creditInfo']:
+                grades.append(courses['id'])
+            self.parent.logger.info(f"查询已开始，当前已出{len(grades)}门成绩（如果是新学期则为0门，本数量不影响查询过程）")
+        else:
+            self.parent.logger.info(f"查询已开始，当前未出成绩，请您稍等")
         totalChecked = 0
         errors = 0
 
