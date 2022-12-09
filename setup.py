@@ -9,7 +9,7 @@ import sys, os
 from setuptools import setup
 
 if sys.platform == 'darwin':
-    # sys.argv.append("py2app")
+    sys.argv.append("py2app")
     APP = ['Tongji-AutoGetScore.py']
     DATA_FILES = ['src']
     OPTIONS = {
@@ -24,7 +24,8 @@ if sys.platform == 'darwin':
             'LSEnvironment': {'QT_QPA_PLATFORM_PLUGIN': 'minimal'}
         },
         'includes': ['sip', 'loguru', 'PyQt6.QtCore', 'PyQt6.QtWidgets', 'PyQt6.QtGui',
-                     'requests', 'easyTongjiapi', 'cv2', 'PIL', 'fastgm', 'opencv-python-headless']
+                     'requests', 'easyTongjiapi', 'cv2', 'PIL', 'fastgm', 'opencv-python-headless'],
+        'arch': 'Universal'
     }
 
     setup(
