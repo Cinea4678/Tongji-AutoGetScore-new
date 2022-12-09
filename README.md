@@ -55,9 +55,3 @@ python Tongji-AutoGetScore.py
 ```
 
 
-
-## 常见问题
-
-- [如果没有显示想要查询的学期怎么办？](/TJAGS/NoWantedTerm.html)
-- [出现奇怪的Bug怎么联系作者？](/TJAGS/contactMe.html)
-

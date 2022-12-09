@@ -24,8 +24,8 @@ if sys.platform == 'darwin':
             'LSEnvironment': {'QT_QPA_PLATFORM_PLUGIN': 'minimal'}
         },
         'includes': ['sip', 'loguru', 'PyQt6.QtCore', 'PyQt6.QtWidgets', 'PyQt6.QtGui',
-                     'requests', 'easyTongjiapi', 'cv2', 'PIL', 'fastgm', 'opencv-python-headless'],
-        'arch': 'Universal'
+                     'requests', 'easyTongjiapi', 'cv2', 'PIL', 'fastgm', 'opencv-python-headless']
+         ,'arch': 'universal2'
     }
 
     setup(
