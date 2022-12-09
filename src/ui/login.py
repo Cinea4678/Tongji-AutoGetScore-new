@@ -80,6 +80,7 @@ class LoginDialog(QtWidgets.QDialog):
             QtWidgets.QMessageBox.warning(self, "登录失败", what)
 
 
+
 class loginThread(threading.Thread):
     def __init__(self, submitResultSignal: QtCore.pyqtBoundSignal, parent: LoginDialog):
         super(loginThread, self).__init__()

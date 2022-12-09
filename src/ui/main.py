@@ -79,6 +79,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setFixedSize(1043, 702)
         self.setWindowIcon(QtGui.QIcon(os.path.abspath(os.path.join(currentDir, "../sources/nmck_bb.ico"))))
         self.ui.queryTimeEdit.setValue(30.0)
+        self.ui.progressBar.setMaximum(30)
 
         # 初始化表格
         self.ui.scoreTable.setColumnCount(6)
@@ -148,9 +149,21 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.mailLineEdt.setText("")
         self.ui.statusbar.showMessage("就绪  |  关闭程序前，最好先停止查询，不然mac系统会弹窗")
 
-    def __del__(self):
-        logger.info("程序即将退出")
-        os._exit(0)
+    def closeEvent(self, event: QtGui.QCloseEvent) -> None:
+        reply = QtWidgets.QMessageBox.information(self, "即将退出", "您确定要退出吗？",
+                                                  QtWidgets.QMessageBox.StandardButton.Ok | QtWidgets.QMessageBox.StandardButton.Cancel,
+                                                  QtWidgets.QMessageBox.StandardButton.Cancel)
+        if reply == QtWidgets.QMessageBox.StandardButton.Cancel:
+            event.ignore()
+        else:
+            self.logger.info("程序即将退出")
+            global stop_flag
+            if self.running:
+                stop_flag = True
+                self.logger.info("查询进程未结束，正在等待查询进程结束...")
+                self.queryThread.join()
+                self.session.logout()
+            event.accept()
 
     # 工具类函数
 
@@ -242,9 +255,11 @@ class MainWindow(QtWidgets.QMainWindow):
                 QtWidgets.QMessageBox.warning(self, "错误", "您还未设置邮箱")
                 return
             if platform.system() == 'Darwin':
-                QtWidgets.QMessageBox.information(self, "提示", "您使用的是Apple macOS操作系统，由于苹果对后台、省电管理严格，请务必前往“系统偏好设置”—“节能”勾选“当显示器关闭时，防止Mac自动进入睡眠”并接入电源使用本程序。\n\n作者使用的是m1版mbp，不同机型可能表现不同，敬请谅。")
+                QtWidgets.QMessageBox.information(self, "提示",
+                                                  "您使用的是Apple macOS操作系统，由于苹果对后台、省电管理严格，请务必前往“系统偏好设置”—“节能”勾选“当显示器关闭时，防止Mac自动进入睡眠”并接入电源使用本程序。\n\n作者使用的是m1版mbp，不同机型可能表现不同，敬请谅。")
             elif platform.system() == 'Windows':
-                QtWidgets.QMessageBox.information(self, "提示", "您使用的是Windows操作系统，为防止程序意外停止，请务必右键点击“开始菜单”，选择“电源选项”，将“接通电源后，系统将进入睡眠状态”设为“永不”并将设备接入电源。")
+                QtWidgets.QMessageBox.information(self, "提示",
+                                                  "您使用的是Windows操作系统，为防止程序意外停止，请务必右键点击“开始菜单”，选择“电源选项”，将“接通电源后，系统将进入睡眠状态”设为“永不”并将设备接入电源。")
             else:
                 # 你已经是一个成熟的linux用户了，应该学会自己为运维负责了
                 pass
@@ -268,6 +283,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 # 查询线程类
 class queryThreadClass(threading.Thread):
+
     def __init__(self, parent: MainWindow, updateProcessBarSignal: QtCore.pyqtBoundSignal):
         super(queryThreadClass, self).__init__()
         self.parent = parent
@@ -309,12 +325,12 @@ class queryThreadClass(threading.Thread):
 
         start_time = time.time()
         while not stop_flag:
-            self.updateProcessBarSignal.emit(int(time.time()-start_time))
+            self.updateProcessBarSignal.emit(int(time.time() - start_time))
             if time.time() - start_time < self.parent.delay:
                 time.sleep(1)
                 continue
             else:
-                self.updateProcessBarSignal.emit(int(time.time()-start_time))
+                self.updateProcessBarSignal.emit(int(time.time() - start_time))
                 start_time = time.time()
             totalChecked += 1
             if not query_once():

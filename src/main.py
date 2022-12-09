@@ -18,6 +18,7 @@ except ImportError:
 
 def start():
     app = QtWidgets.QApplication(sys.argv)
+    app.setQuitOnLastWindowClosed(True)
     MainWindow = main.MainWindow()
     MainWindow.show()
     sys.exit(app.exec())

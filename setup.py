@@ -10,7 +10,7 @@ from setuptools import setup
 
 if sys.platform == 'darwin':
     # sys.argv.append("py2app")
-    APP = ['main.py']
+    APP = ['Tongji-AutoGetScore.py']
     DATA_FILES = ['src']
     OPTIONS = {
         'iconfile': 'src/sources/logo.icns',
@@ -35,4 +35,4 @@ if sys.platform == 'darwin':
         setup_requires=['py2app'],
     )
 elif sys.platform == 'win32':
-    os.system("pyinstaller -D -i sources/nmck_bb.ico --noconsole Tongji-AutoGetScore.py")
+    os.system("pyinstaller -D -i src/sources/nmck_bb.ico --noconsole Tongji-AutoGetScore.py")
