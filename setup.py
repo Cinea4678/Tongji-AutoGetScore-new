@@ -25,7 +25,7 @@ if sys.platform == 'darwin':
         },
         'includes': ['sip', 'loguru', 'PyQt6.QtCore', 'PyQt6.QtWidgets', 'PyQt6.QtGui',
                      'requests', 'easyTongjiapi', 'cv2', 'PIL', 'fastgm', 'opencv-python-headless']
-         ,'arch': 'universal2'
+         , 'arch': 'universal2'
     }
 
     setup(

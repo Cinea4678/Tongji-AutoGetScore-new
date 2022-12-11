@@ -28,11 +28,13 @@ try:
     import src.ui.about as Ui_about
     import src.sources.static_rc
     import src.mail as mailTools
+    import src.ui.src.Ui_update as Ui_update
 except ImportError:
     from .src import Ui_main as Ui_main
     import login as Ui_login
     import verifyMail as Ui_ve
     from .. import mail as mailTools
+    from .src.Ui_update import Ui_update as Ui_update
 
 from loguru import logger
 import requests
@@ -110,6 +112,21 @@ class MainWindow(QtWidgets.QMainWindow):
         self.delay = 30.0
         self.running = False
         self.queryThread = None
+
+        # 检查版本
+        class updateWindow(QtWidgets.QDialog):
+            def __init__(self):
+                super(updateWindow, self).__init__()
+                self.ui = Ui_update.Ui_Dialog()
+                self.ui.setupUi(self)
+        try:
+            if "1.0.0" != requests.get("https://www.cinea.com.cn/node/tjagsVercheck").text:
+                upd = updateWindow()
+                upd.exec()
+        except Exception as e:
+            QtWidgets.QMessageBox.warning(self, "网络错误", "您的网络配置不正确或无连接，程序即将退出...")
+            logger.error(str(e))
+            exit(0)
 
         # 登录
         self.session = easyTongjiapi.Session()

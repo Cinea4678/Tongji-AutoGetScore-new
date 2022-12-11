@@ -12,9 +12,7 @@
 
 - [Windows](https://cineaworks-1305284863.cos.accelerate.myqcloud.com/tongji-AutoGetScore-new/1.0.0/Tongji-AutoGetScore-Windows-amd64.zip)
 
-- [macOS(Apple芯片)](https://cineaworks-1305284863.cos.accelerate.myqcloud.com/tongji-AutoGetScore-new/1.0.0/Tongji-AutoGetScore-macOS-arm64.dmg)
-
-- [macOS(Intel芯片)](https://cineaworks-1305284863.cos.accelerate.myqcloud.com/tongji-AutoGetScore-new/1.0.0/Tongji-AutoGetScore-macOS-Intel.dmg)（提示：非Intel用户请勿下载）
+- [macOS(双平台通用)](https://cineaworks-1305284863.cos.accelerate.myqcloud.com/tongji-AutoGetScore-new/1.0.0/Tongji-AutoGetScore-macOS-Universal.dmg)
 
 - Linux等其他平台：请前往GitHub下载源代码直接使用
 
