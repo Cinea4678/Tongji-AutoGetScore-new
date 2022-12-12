@@ -120,7 +120,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui = Ui_update.Ui_Dialog()
                 self.ui.setupUi(self)
         try:
-            if "1.0.0" != requests.get("https://www.cinea.com.cn/node/tjagsVercheck").text:
+            if "1.0.1" != requests.get("https://www.cinea.com.cn/node/tjagsVercheck").text:
                 upd = updateWindow()
                 upd.exec()
         except Exception as e:
@@ -179,7 +179,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 stop_flag = True
                 self.logger.info("查询进程未结束，正在等待查询进程结束...")
                 self.queryThread.join()
-                self.session.logout()
+            self.session.logout()
             event.accept()
 
     # 工具类函数
