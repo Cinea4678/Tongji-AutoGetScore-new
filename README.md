@@ -10,9 +10,9 @@
 
 ## 免费下载
 
-- [Windows](https://cineaworks-1305284863.cos.accelerate.myqcloud.com/tongji-AutoGetScore-new/1.0.0/Tongji-AutoGetScore-Windows-amd64.zip)
+- [Windows](https://cineaworks-1305284863.cos.accelerate.myqcloud.com/tongji-AutoGetScore-new/1.0.1/Tongji-AutoGetScore-Windows-amd64.zip)
 
-- [macOS(双平台通用)](https://cineaworks-1305284863.cos.accelerate.myqcloud.com/tongji-AutoGetScore-new/1.0.0/Tongji-AutoGetScore-macOS-Universal.dmg)
+- [macOS(双平台通用)](https://cineaworks-1305284863.cos.accelerate.myqcloud.com/tongji-AutoGetScore-new/1.0.1/Tongji-AutoGetScore-macOS-Universal.dmg)
 
 - Linux等其他平台：请前往GitHub下载源代码直接使用
 
