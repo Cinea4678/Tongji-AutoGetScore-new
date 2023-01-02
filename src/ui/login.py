@@ -25,6 +25,8 @@ from loguru import logger
 
 currentDir = os.path.dirname(os.path.abspath(__file__))
 
+homePath = os.environ['HOME'] if 'HOME' in os.environ else os.environ['HOMEDIR'] if 'HOMEDIR' in os.environ else '~/'
+
 
 class LoginDialog(QtWidgets.QDialog):
     submitResultSignal = QtCore.pyqtSignal(bool, str)
@@ -50,8 +52,8 @@ class LoginDialog(QtWidgets.QDialog):
         # 查看是否存在缓存的学号
 
         try:
-            if os.path.exists(os.environ['HOME'] + "/.cineaworks/stuid.dat"):
-                with open(os.environ['HOME'] + "/.cineaworks/stuid.dat", 'r') as f:
+            if os.path.exists(homePath + "/.cineaworks/stuid.dat"):
+                with open(homePath + "/.cineaworks/stuid.dat", 'r') as f:
                     sid = f.readline().strip()
                 self.ui.stuID.setText(sid)
         except Exception as e:
@@ -84,10 +86,13 @@ class LoginDialog(QtWidgets.QDialog):
 
     def dealAccept(self, ok: bool, what: str):
         if ok:
-            if not os.path.exists(os.environ['HOME'] + "/.cineaworks"):
-                os.makedirs(os.environ['HOME'] + "/.cineaworks")
-            with open(os.environ['HOME'] + "/.cineaworks/stuid.dat", 'w') as f:
-                f.write(self.ui.stuID.text())
+            try:
+                if not os.path.exists(homePath + "/.cineaworks"):
+                    os.makedirs(homePath + "/.cineaworks")
+                with open(homePath + "/.cineaworks/stuid.dat", 'w') as f:
+                    f.write(self.ui.stuID.text())
+            except Exceptions as e:
+                logger.error(str(e))
             super(LoginDialog, self).accept()
         else:
             self.ui.progressBar.setMaximum(100)
