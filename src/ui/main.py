@@ -120,7 +120,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui = Ui_update.Ui_Dialog()
                 self.ui.setupUi(self)
         try:
-            if "1.0.1" != requests.get("https://www.cinea.com.cn/node/tjagsVercheck").text:
+            if "1.1.0" != requests.get("https://www.cinea.com.cn/node/tjagsVercheck").text:
                 upd = updateWindow()
                 upd.exec()
         except Exception as e:
@@ -292,9 +292,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.logger.info("查询线程即将结束...")
             self.ui.progressBar.reset()
 
-    @staticmethod
-    def showAboutDialog():
-        dialog = Ui_about.aboutDialog()
+    def showAboutDialog(self):
+        dialog = Ui_about.aboutDialog(self)
         dialog.exec()
 
 

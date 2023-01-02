@@ -168,7 +168,7 @@
   <widget class="QPushButton" name="copyRightMsg">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>200</x>
      <y>430</y>
      <width>131</width>
      <height>28</height>
@@ -176,6 +176,19 @@
    </property>
    <property name="text">
     <string>版权信息</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="debugTools">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>430</y>
+     <width>131</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>调试工具</string>
    </property>
   </widget>
  </widget>

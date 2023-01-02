@@ -18,7 +18,7 @@ if sys.platform == 'darwin':
             'CFBundleName': 'Tongji-ScoreAutoGet',  # 应用名
             'CFBundleDisplayName': '同济成绩自动查询器',  # 应用显示名
             "CFBundleGetInfoString": "同济大学考试成绩自动后台查询器",
-            'CFBundleVersion': '1.0.0',  # 应用版本号
+            'CFBundleVersion': '1.1.0',  # 应用版本号
             'CFBundleIdentifier': 'com.cinea.tongjiautoscore',  # 应用包名、唯一标识
             'NSHumanReadableCopyright': 'Copyright © 2022 Cinea Works (Individual). Use the GPL license.',  # 可读版权
             'LSEnvironment': {'QT_QPA_PLATFORM_PLUGIN': 'minimal'}

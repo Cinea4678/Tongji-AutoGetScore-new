@@ -57,9 +57,9 @@ class Ui_Dialog(object):
         self.copyRightMsg = QtWidgets.QPushButton(Dialog)
         self.copyRightMsg.setGeometry(QtCore.QRect(200, 430, 131, 28))
         self.copyRightMsg.setObjectName("copyRightMsg")
-        self.debugTools = QtWidgets.QPushButton(Dialog)
-        self.debugTools.setGeometry(QtCore.QRect(450, 430, 131, 28))
-        self.debugTools.setObjectName("debugTools")
+        self.copyRightMsg_2 = QtWidgets.QPushButton(Dialog)
+        self.copyRightMsg_2.setGeometry(QtCore.QRect(450, 430, 131, 28))
+        self.copyRightMsg_2.setObjectName("copyRightMsg_2")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -76,4 +76,4 @@ class Ui_Dialog(object):
         self.label_8.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">提交BUG请到Github Issue区或向我发送邮件</span></p></body></html>"))
         self.label_9.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">严重/紧急的BUG也可以添加我的QQ：1650121748（注明来意）</span></p></body></html>"))
         self.copyRightMsg.setText(_translate("Dialog", "版权信息"))
-        self.debugTools.setText(_translate("Dialog", "调试工具"))
+        self.copyRightMsg_2.setText(_translate("Dialog", "调试工具"))
