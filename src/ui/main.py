@@ -119,6 +119,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 super(updateWindow, self).__init__()
                 self.ui = Ui_update.Ui_Dialog()
                 self.ui.setupUi(self)
+                self.ui.label_4.setOpenExternalLinks(True)
         try:
             if "1.1.0" != requests.get("https://www.cinea.com.cn/node/tjagsVercheck").text:
                 upd = updateWindow()
