@@ -47,6 +47,16 @@ class LoginDialog(QtWidgets.QDialog):
         self.submitResultSignal.connect(self.dealAccept)
         self.loginThd = None
 
+        # 查看是否存在缓存的学号
+
+        try:
+            if os.path.exists(os.environ['HOME'] + "/.cineaworks/stuid.dat"):
+                with open(os.environ['HOME'] + "/.cineaworks/stuid.dat", 'r') as f:
+                    sid = f.readline().strip()
+                self.ui.stuID.setText(sid)
+        except Exception as e:
+            logger.error(str(e))
+
     def clicked(self) -> None:
         if len(self.ui.stuID.text()) == 0 or len(self.ui.stuCode.text()) == 0:
             QtWidgets.QMessageBox.warning(self, "错误", "您填入的数据不完整")
@@ -74,6 +84,10 @@ class LoginDialog(QtWidgets.QDialog):
 
     def dealAccept(self, ok: bool, what: str):
         if ok:
+            if not os.path.exists(os.environ['HOME'] + "/.cineaworks"):
+                os.makedirs(os.environ['HOME'] + "/.cineaworks")
+            with open(os.environ['HOME'] + "/.cineaworks/stuid.dat", 'w') as f:
+                f.write(self.ui.stuID.text())
             super(LoginDialog, self).accept()
         else:
             self.ui.progressBar.setMaximum(100)
